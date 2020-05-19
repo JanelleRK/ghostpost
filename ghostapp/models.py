@@ -9,4 +9,7 @@ class GhostPost(models.Model):
     #down_vote = models.IntegerField()
     date = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+        return self.post_input
+
 
