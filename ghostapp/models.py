@@ -5,8 +5,8 @@ from django.utils import timezone
 class GhostPost(models.Model):
     post_input = models.CharField(max_length=100)
     #Boolean??
-    #up_vote = models.IntegerField()
-    #down_vote = models.IntegerField()
+    #up_vote = models.IntegerField(default=0)
+    #down_vote = models.IntegerField(default=0)
     date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):

@@ -3,7 +3,17 @@
 <ul>
     {% for post in posts %}
     <li>
-        {{ post.post_input }}
+        {{ post.post_input }} submitted on {{ post.date }}
+        <a href="upvote/{{ post.id }}">
+            <button>
+            Boast
+            </button>
+        </a>
+        <a href="downvote/{{ post.id }}">
+            <button>
+            Roast
+            </button>
+        </a>
     </li>
     {% endfor %}
 </ul>
