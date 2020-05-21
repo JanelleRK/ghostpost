@@ -3,10 +3,11 @@ from django.utils import timezone
 
 # Create your models here.
 class GhostPost(models.Model):
-    post_input = models.CharField(max_length=100)
-    #Boolean??
-    #up_vote = models.IntegerField(default=0)
-    #down_vote = models.IntegerField(default=0)
+    boast = models.BooleanField(default=False)
+    post_input = models.CharField(max_length=150)
+    up_vote = models.IntegerField(default=0)
+    down_vote = models.IntegerField(default=0)
+    sum_of_votes = models.IntegerField(default=0)
     date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):

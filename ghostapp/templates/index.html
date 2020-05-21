@@ -1,19 +1,29 @@
 <h1>Ghost Post</h1>
 
-<ul>
-    {% for post in posts %}
-    <li>
-        {{ post.post_input }} submitted on {{ post.date }}
-        <a href="upvote/{{ post.id }}">
-            <button>
-            Boast
-            </button>
-        </a>
-        <a href="downvote/{{ post.id }}">
-            <button>
-            Roast
-            </button>
-        </a>
-    </li>
-    {% endfor %}
-</ul>
+
+<button><a href="post/">Add a Boast or Roast</a></button>
+<br>
+
+{% for post in posts %}
+<br>
+
+    {% if post.boast %}
+        <h3>Boast: {{ boasts }}</h3>
+
+    {% else %}
+        <h3>Roast: {{ roasts }} </h3>
+    {% endif %}
+    <h4>{{ post }} </h4>
+        <h5>Total Votes: {{ post.sum_of_votes }} </h5>
+
+<li>
+    {% include 'voting.html' %}
+</li>
+{% endfor %}
+
+<h2>
+    <button> <a href= "boast/">Boasts</a></button>
+
+    <button> <a href= "roast/">Roasts</a></button>
+</h2>
+

@@ -1,0 +1,8 @@
+<h1>Boasts:</h1>
+
+{% for boast in boasts %}
+<p>{{boast.post_input}}  {{ boast.date }}  Total votes: {{ boast.sum_of_votes }}</p>
+<li>
+    {% include 'voting.html' %}
+</li>
+{% endfor %}

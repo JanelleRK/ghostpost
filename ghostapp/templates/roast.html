@@ -1,0 +1,9 @@
+<h1>Roasts:</h1>
+
+{% for roast in roasts %}
+<p>{{roast.post_input}}  {{ roast.date }}  Total votes: {{ roast.sum_of_votes }}</p>
+<li>
+    {% include 'voting.html' %}
+</li>
+{% endfor %}
+

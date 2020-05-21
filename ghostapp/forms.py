@@ -1,7 +1,8 @@
 from django import forms
 
-class AddGhostPostForm(forms.Form):
-    post_input = forms.CharField(max_length=100)
+class GhostPostForm(forms.Form):
+    post_input = forms.CharField(max_length=150)
+    boast = forms.BooleanField(required=False)
 
 
 
