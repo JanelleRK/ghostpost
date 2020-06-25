@@ -1,29 +1,33 @@
 <h1>Ghost Post</h1>
 
 
-<button><a href="post/">Add a Boast or Roast</a></button>
-<br>
-
-{% for post in posts %}
-<br>
-
-    {% if post.boast %}
-        <h3>Boast: {{ boasts }}</h3>
-
-    {% else %}
-        <h3>Roast: {{ roasts }} </h3>
-    {% endif %}
-    <h4>{{ post }} </h4>
-        <h5>Total Votes: {{ post.sum_of_votes }} </h5>
-
-<li>
-    {% include 'voting.html' %}
-</li>
-{% endfor %}
-
 <h2>
-    <button> <a href= "boast/">Boasts</a></button>
-
-    <button> <a href= "roast/">Roasts</a></button>
+    <button><a href="post/">Add a Boast or Roast</a></button>
 </h2>
+<br>
+
+
+<h3>
+    <button> <a href= "boasts/">Boasts</a></button>
+
+    <button> <a href= "roasts/">Roasts</a></button>
+</h3>
+<br>
+<h4>
+    <button> <a href="voting">Sort by Votes</a></button>
+</h4>
+{% for post in posts %}
+    {% if post.boast %}
+        <h4>
+            {{post.post_input}}
+            <h5>{{post.date}}</h5>
+        </h4>
+    {% else %}
+        <h4>{{post.post_input}}</h4>
+    {% endif %}
+
+<br>
+    <button><a href='/up_vote/{{ post.id}}/'>Upvote {{ post.up_vote }}</a> </button>
+    <button><a href='/down_vote/{{ post.id}}/'>Downvote {{ post.down_vote }}</a></button>
+{% endfor %}
 

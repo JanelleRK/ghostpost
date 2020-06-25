@@ -1,3 +1,18 @@
-{{ post }} | {{ post.date }}
-    <button><a href='/up_vote/{{ post.id}}/'>Upvote {{ post.up_vote }}</a> </button>
-    <button><a href='/down_vote/{{ post.id}}/'>Downvote {{ post.down_vote }}</a></button>
+<h1>Voting</h1>
+
+{% for post in posts %}
+    {% if post.boast %}
+        <h3>Boast</h3>
+    {% else %}
+        <h3>Roast</h3>
+    {% endif %}
+
+
+    <li>
+        {{ post.post_input }} | {{ post.date }} | {{ post.sum_of_votes }}
+            <button><a href='/up_vote/{{ post.id}}/'>Upvote {{ post.up_vote }}</a> </button>
+            <button><a href='/down_vote/{{ post.id}}/'>Downvote {{ post.down_vote }}</a></button>
+    </li>
+
+{% endfor %}
+<a href="/">Homepage...</a>
